@@ -1,6 +1,7 @@
 import nltk
 nltk.download('punkt')
 nltk.download('wordnet')
+nltk.download('omw-1.4')
 from nltk.stem import WordNetLemmatizer
 lemmatizer = WordNetLemmatizer()
 import json
@@ -9,14 +10,14 @@ import pickle
 import numpy as np
 from keras.models import Sequential
 from keras.layers import Dense, Activation, Dropout
-from keras.optimizers import SGD
+from tensorflow.keras.optimizers import SGD
 import random
 
 words=[]
 classes = []
 documents = []
 ignore_words = ['?', '!']
-data_file = open('job_intents.json', encoding='utf-8').read()
+data_file = open('weights/job_intents.json', encoding='utf-8').read()
 intents = json.loads(data_file)
 
 
@@ -44,8 +45,8 @@ print (len(classes), "classes", classes)
 print (len(words), "unique lemmatized words", words)
 
 
-pickle.dump(words,open('words.pkl','wb'))
-pickle.dump(classes,open('classes.pkl','wb'))
+pickle.dump(words,open('weights/words.pkl','wb'))
+pickle.dump(classes,open('weights/classes.pkl','wb'))
 
 # initializing training data
 training = []
@@ -89,6 +90,6 @@ model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy
 
 #fitting and saving the model
 hist = model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=1)
-model.save('chatbot_model.h5', hist)
+model.save('weights/chatbot_model.h5', hist)
 
 print("model created")
