@@ -1,0 +1,25 @@
+# deployment.yaml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name : python-deep-learning-chatbot-deploy
+  labels:
+          app: karoba-chatbot 
+spec:
+  selector: 
+    matchLabels:
+      app: karoba-chatbot
+  replicas: 3
+  template:
+    metadata:
+      name: python-deep-learning-chatbot-tmpl
+      labels:
+        app: karoba-chatbot
+    spec:
+      containers:
+        - name: chatbot-flask
+          image: chatbot-flask:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8888
