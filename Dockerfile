@@ -8,7 +8,9 @@ WORKDIR /app
 
 COPY python-deep-learning-chatbot . 
 
-CMD ["python3", "app.py" , "--host=0.0.0.0"]
+EXPOSE 8888
+
+CMD ["python3", "app.py" ]
 
 
 
