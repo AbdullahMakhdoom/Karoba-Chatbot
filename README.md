@@ -15,6 +15,7 @@ docker run chatbot_flask
 ```
 
 ### Minikube
+
    This is the tool used to run Kubernetes locally, for your OS. This includes installing a hypervisor and `kubectl`, the command-line tool used to manage Kubernetes from your local workstation.
    
  Start Minikube cluster using the following command :
@@ -65,6 +66,17 @@ kubectl get services
 
 ```
 
+
+Run the following command to view the replicas of pods (containers). 
+
+```
+kubectl get pods
+
+```
+
+Note : All the 3 pods are running in single nod.
+
+
 Start the chatbot app.
 
 ```
@@ -86,14 +98,8 @@ Now from another terminal, run the following command to view the running service
 kubectl get services
 ```
 
-Go to `http://<EXTERNAL-IP>:8888` to go to Flask chatbot app.
+Open `http://<EXTERNAL-IP>:8888` in the browser to go to the Karoba Chatbot Flask web app.
 
-Run the following command to view the replicas of pods
-
-```
-kubectl get pods
-
-```
 
 
 # Watch the full Tutorial on Youtube
