@@ -101,6 +101,3 @@ kubectl get services
 Open `http://<EXTERNAL-IP>:8888` in the browser to go to the Karoba Chatbot Flask web app.
 
 
-
-# Watch the full Tutorial on Youtube
-[Create a Deep Learning Machine Learning Chatbot with Python and Flask](https://www.youtube.com/watch?v=8HifpykuTI4)
